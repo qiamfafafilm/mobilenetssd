@@ -151,6 +151,12 @@ def event_handle(event):
         msg = str(event["message"]["text"])
         if (msg == "สวัสดี") :
             replyObj = TextSendMessage(text="ดีด้วย")
+        elif (msg == "เฮียเหริน") :
+            replyObj = TextSendMessage(text="อร่อย ชิมยัง")
+        elif (msg == "อวยยศลูก") :
+            replyObj = TextSendMessage(text="คุณหนูนายน้อยพี่น้องเตนล์พิกกี้บูบูโรยผงพิกซี่")
+        elif (msg == "แล้วพลอยไพลินจะเป็นไหม") :
+            replyObj = TextSendMessage(text="คือไรเป็นอาหารปลาใช่ปะ มีปลาทอง ปลานกยูง ปลาปักกะเป้า แต่ยิงเป้าไม่แม่น ปลากัดเหมือนกันไหม แต่ว่านักยิงเป้ายิงแม่นแต่มันโกง ไม่ยุ่งเกี่ยวแล้ว ไม่สน แต่แฟนเก่ามันคือใคร มันอยู่ตรงข้ามบ้านเลยย้ายไปฉะเชิงเทรา แต่เป็นคนขี้เซาเลยหลับต่อ")
         else :
             replyObj = TextSendMessage(text=msg)
         line_bot_api.reply_message(rtoken, replyObj)
