@@ -162,8 +162,8 @@ def event_handle(event):
             replyObj = TextSendMessage(text="คือไรเป็นอาหารปลาใช่ปะ มีปลาทอง ปลานกยูง ปลาปักกะเป้า แต่ยิงเป้าไม่แม่น ปลากัดเหมือนกันไหม แต่ว่านักยิงเป้ายิงแม่นแต่มันโกง ไม่ยุ่งเกี่ยวแล้ว ไม่สน แต่แฟนเก่ามันคือใคร มันอยู่ตรงข้ามบ้านเลยย้ายไปฉะเชิงเทรา แต่เป็นคนขี้เซาเลยหลับต่อ")
             line_bot_api.reply_message(rtoken, replyObj)
         else :
-            #headers = request.headers
-            #json_headers = json.dumps({k:v for k, v in headers.items()})
+            headers = request.headers
+            json_headers = json.dumps({k:v for k, v in headers.items()})
             '''
             json_line = request.get_json(force=False,cache=False)
             json_line = json.dumps(json_line)
@@ -181,7 +181,7 @@ def event_handle(event):
             crl.perform()
             crl.close()
             '''
-            replyObj = TextSendMessage(text=msg)
+            replyObj = TextSendMessage(text=json_headers)
             line_bot_api.reply_message(rtoken, replyObj)
     elif msgType == "image":
         try:
