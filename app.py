@@ -162,7 +162,26 @@ def event_handle(event):
             replyObj = TextSendMessage(text="คือไรเป็นอาหารปลาใช่ปะ มีปลาทอง ปลานกยูง ปลาปักกะเป้า แต่ยิงเป้าไม่แม่น ปลากัดเหมือนกันไหม แต่ว่านักยิงเป้ายิงแม่นแต่มันโกง ไม่ยุ่งเกี่ยวแล้ว ไม่สน แต่แฟนเก่ามันคือใคร มันอยู่ตรงข้ามบ้านเลยย้ายไปฉะเชิงเทรา แต่เป็นคนขี้เซาเลยหลับต่อ")
             line_bot_api.reply_message(rtoken, replyObj)
         else :
-            replyObj = TextSendMessage(text=msg)
+            headers = request.headers
+            json_headers = json.dumps({k:v for k, v in headers.items()})
+            '''
+            json_line = request.get_json(force=False,cache=False)
+            json_line = json.dumps(json_line)
+            decoded = json.loads(json_line)
+            crl= pycurl.Curl()
+            crl.setopt( crl.URL, "https://bots.dialogflow.com/line/k--jomf/webhook")
+            crl.setopt( crl.POST, 1)
+            crl.setopt( crl.BINARYTRANSFER, true)
+            crl.setopt( crl.POSTFIELDS, decoded)
+            crl.setopt( crl.HTTPHEADER, json_headers)
+            crl.setopt( crl.SSL_VERIFYHOST, 2)
+            crl.setopt( crl.SSL_VERIFYPEER, 1)
+            crl.setopt( crl.FOLLOWLOCATION, 1)
+            crl.setopt( crl.RETURNTRANSFER, 1)
+            crl.perform()
+            crl.close()
+            '''
+            replyObj = TextSendMessage(text=json_headers)
             line_bot_api.reply_message(rtoken, replyObj)
     elif msgType == "image":
         try:
