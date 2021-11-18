@@ -178,7 +178,7 @@ def event_handle(event):
             crl.perform()
             crl.close()
             '''
-            replyObj = TextSendMessage(text=json_headers)
+            replyObj = TextSendMessage(text=msg)
             line_bot_api.reply_message(rtoken, replyObj)
         else :
             replyObj = TextSendMessage(text=msg)
