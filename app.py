@@ -161,7 +161,7 @@ def event_handle(event,json_line):
         elif (msg == "แล้วพลอยไพลินจะเป็นไหม") :
             replyObj = TextSendMessage(text="คือไรเป็นอาหารปลาใช่ปะ มีปลาทอง ปลานกยูง ปลาปักกะเป้า แต่ยิงเป้าไม่แม่น ปลากัดเหมือนกันไหม แต่ว่านักยิงเป้ายิงแม่นแต่มันโกง ไม่ยุ่งเกี่ยวแล้ว ไม่สน แต่แฟนเก่ามันคือใคร มันอยู่ตรงข้ามบ้านเลยย้ายไปฉะเชิงเทรา แต่เป็นคนขี้เซาเลยหลับต่อ")
             line_bot_api.reply_message(rtoken, replyObj)
-        elif msg == "Covid" :
+        elif msg == "covid" :
             url = "https://covid19.ddc.moph.go.th/api/Cases/today-cases-all"
             response = requests.get(url)
             response = response.json()
