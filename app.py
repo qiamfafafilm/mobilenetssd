@@ -26,7 +26,7 @@ UPLOAD_FOLDER ='static/uploads/'
 DOWNLOAD_FOLDER = 'static/downloads/'
 ALLOWED_EXTENSIONS = {'jpg', 'png','.jpeg'}
 
-lineaccesstoken = 'r9N9sYazecKWBYLY31qbrbyxcDuAmdDvGk7pYcgA0Pcp8GlRATPxFgCDZyVT+7UJYvyMZis+OS4k96FsYckGB0L/gB8xz44jDmyIfXdmjeIYEfhuyglwi0/UEh4J1oOFUNDCcgGWdo0b14Z67VQtrwdB04t89/1O/w1cDnyilFU='
+lineaccesstoken = 'vGejPOVWkRy1Ibqhz72VNM06R97UANA1mf3oquat4cZnBL7WsEAXiWwQjb8fzIpdNFWj+pf5CWKRWr2ROkpaELJkWQ3NT8+1xyMqd6LvjoFivmyrdPTvYZLuEelrsEXoOuIcFGyExUJfNe91o2p0GwdB04t89/1O/w1cDnyilFU='
 
 line_bot_api = LineBotApi(lineaccesstoken)
 
@@ -161,17 +161,11 @@ def event_handle(event,json_line):
         elif (msg == "แล้วพลอยไพลินจะเป็นไหม") :
             replyObj = TextSendMessage(text="คือไรเป็นอาหารปลาใช่ปะ มีปลาทอง ปลานกยูง ปลาปักกะเป้า แต่ยิงเป้าไม่แม่น ปลากัดเหมือนกันไหม แต่ว่านักยิงเป้ายิงแม่นแต่มันโกง ไม่ยุ่งเกี่ยวแล้ว ไม่สน แต่แฟนเก่ามันคือใคร มันอยู่ตรงข้ามบ้านเลยย้ายไปฉะเชิงเทรา แต่เป็นคนขี้เซาเลยหลับต่อ")
             line_bot_api.reply_message(rtoken, replyObj)
-        elif msg == "covid" :
-            url = "https://covid19.ddc.moph.go.th/api/Cases/today-cases-all"
-            response = requests.get(url)
-            response = response.json()
-            replyObj = TextSendMessage(text=str(response))
-            line_bot_api.reply_message(rtoken, replyObj)
         else :
             headers = request.headers
             json_headers = ({k:v for k, v in headers.items()})
             json_headers.update({'Host':'bots.dialogflow.com'})
-            url = "https://dialogflow.cloud.google.com/v1/integrations/line/webhook/05cbef05-ef4d-47c1-a6fd-af1543b4e88b"
+            url = "https://dialogflow.cloud.google.com/v1/integrations/line/webhook/0908c5c1-c06d-41c8-bd32-4b58d1e02149"
             requests.post(url,data=json_line, headers=json_headers)
     elif msgType == "image":
         try:
